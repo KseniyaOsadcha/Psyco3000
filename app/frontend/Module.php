@@ -1,4 +1,8 @@
 <?php
+
+namespace Modules\Frontend;
+
+
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
 use Phalcon\Mvc\Url as UrlResolver;
