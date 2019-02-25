@@ -108,15 +108,15 @@ $di->set('flash', function () {
 /**
  * Registering a router
  */
-//$di->setShared('router', function () {
-//    $router = new \Phalcon\Mvc\Router();
-//    $router->setDefaultModule('frontend');
-//    $router->mount(new FrontendRoutes());
-//    $router->mount(new BackendRoutes());
-//    $router->removeExtraSlashes(true);
-//    $router->handle();
-//    return $router;
-//});
+$di->setShared('router', function () {
+    $router = new \Phalcon\Mvc\Router();
+    $router->setDefaultModule('frontend');
+    $router->mount(new FrontendRoutes());
+    $router->mount(new BackendRoutes());
+    $router->removeExtraSlashes(true);
+    $router->handle();
+    return $router;
+});
 
 /**
  * Start the session the first time some component request the session service

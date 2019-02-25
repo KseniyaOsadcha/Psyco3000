@@ -17,7 +17,7 @@ try {
     /**
      * Handle routes
      */
-    include APP_PATH . '/config/router.php';
+//    include APP_PATH . '/config/router.php';
     /**
      * Read services
      */
@@ -36,19 +36,19 @@ try {
     /**
      * Handle the request
      */
-//    $application->registerModules(
-//
-//        array(
-//
-//        'frontend' => array(
-//            'className' => 'Modules\Frontend\Module',
-//            'path' => '/var/www/psyco.com/app/frontend/Module.php'
-//        ),
-//        'backend' => array(
-//            'className' => 'Modules\Backend\Module',
-//            'path' => '/var/www/psyco.com/app/backend/Module.php'
-//        )
-//    ));
+    $application->registerModules(
+
+        array(
+
+        'frontend' => array(
+            'className' => 'Modules\Frontend\Module',
+            'path' => '/var/www/psyco.com/app/frontend/Module.php'
+        ),
+        'backend' => array(
+            'className' => 'Modules\Backend\Module',
+            'path' => '/var/www/psyco.com/app/backend/Module.php'
+        )
+    ));
     $application = new \Phalcon\Mvc\Application($di);
 
     echo str_replace(["\n","\r","\t"], '', $application->handle()->getContent());
