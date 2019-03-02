@@ -52,10 +52,10 @@
         <div>
             <div class="call_me-title">Все ещё сомневаешься?</div>
             <div class="call_me-sub-title">Мы поможем тебе определиться! Позвони и запишись на консульацию со скидкой
-                20%
+                10%
             </div>
         </div>
-        <a href="" class="btn btn-lg btn-danger">Позвоните мне!</a>
+        <a href="{{ url.get(['for':'feedback']) }}" class="btn btn-lg btn-danger">Записаться</a>
     </div>
 </section>
 <section>
@@ -65,7 +65,7 @@
             <div class="employee">
                 <div>
                     <div class="empl-img"
-                         style="background: url('img/{{ employee.id }}.jpg') center 0% no-repeat; background-size: cover;">
+                         style="background: url('img/employees/{{ employee.id }}.jpg') center 0% no-repeat; background-size: cover;">
                         {#<img src="img/{{ employee.id }}.jpg" alt="">#}
                     </div>
                 </div>

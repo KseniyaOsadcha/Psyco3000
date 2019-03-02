@@ -6,8 +6,10 @@ use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
-use Phalcon\Flash\Direct as Flash;
-
+use Phalcon\Flash\Session as Flash;
+use Phalcon\Cache\Frontend\Data as FrontData;
+use Models\Context;
+use Models\Converter;
 /**
  * Shared configuration service
  */
@@ -15,6 +17,12 @@ $di->setShared('config', function () {
     return include APP_PATH . "/config/config.php";
 });
 
+//$di->set(
+//    'context',
+//    function () {
+//        return Context::getContext();
+//    }
+//);
 /**
  * The URL component is used to generate all kind of urls in the application
  */
@@ -31,7 +39,7 @@ $di->setShared('config', function () {
  */
 //$di->setShared('url', function () {
 //    $config = $this->getConfig();
-//    $url = new \Models\UrlManager();
+//    $url = new UrlManager();
 //    $url->setBaseUri($config->application->baseUri);
 //    return $url;
 //});
@@ -44,6 +52,7 @@ $di->setShared('config', function () {
  */
 
 $di->setShared('db', function () {
+
     $config = $this->getConfig();
     return new \Phalcon\Db\Adapter\Pdo\Mysql(
         [
@@ -55,38 +64,6 @@ $di->setShared('db', function () {
         ]
     );
 });
-
-    $di->setShared('view', function () {
-        $config = $this->getConfig();
-//        echo $config->application->viewsDir ;
-//        echo __DIR__ ;
-//        die;
-        $view = new View();
-        $view->setDI($this);
-        $view->setViewsDir($config->application->viewsDir);
-        $view->setLayoutsDir($config->application->viewsDir . 'layouts/');
-        $view->setLayout('index');
-
-        $view->registerEngines([
-            '.volt' => function ($view) {
-                $config = $this->getConfig();
-
-                $volt = new VoltEngine($view, $this);
-
-                $volt->setOptions([
-                    'compiledPath' => $config->application->cacheDir,
-                    'compiledSeparator' => '_',
-                    'compileAlways' => true
-                ]);
-
-                return $volt;
-            },
-            '.phtml' => PhpEngine::class
-
-        ]);
-
-        return $view;
-    });
 /**
  * If the configuration specify the use of metadata adapter use it or use memory otherwise
  */
@@ -105,18 +82,24 @@ $di->set('flash', function () {
         'warning' => 'alert alert-warning'
     ]);
 });
-/**
- * Registering a router
- */
-$di->setShared('router', function () {
-    $router = new \Phalcon\Mvc\Router();
-    $router->setDefaultModule('frontend');
-    $router->mount(new FrontendRoutes());
-    $router->mount(new BackendRoutes());
-    $router->removeExtraSlashes(true);
-    $router->handle();
-    return $router;
-});
+
+$di->set(
+    "flashDirect",
+    function () {
+        $flashDirect = new \Phalcon\Flash\Direct([
+            "error" => "alert alert-danger",
+            "success" => "alert alert-success alert-dismissable",
+            "notice" => "alert alert-info",
+            "warning" => "alert alert-warning",
+        ]);
+        $flashDirect->setImplicitFlush('<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>');
+        $flashDirect->setAutoescape(false);
+
+        return $flashDirect;
+    }
+);
+
+
 
 /**
  * Start the session the first time some component request the session service

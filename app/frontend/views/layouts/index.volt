@@ -15,18 +15,21 @@
 <body>
 <header>
     <div class="head">
-        <div class="logo"><a href="{{ url.get(['for':'home-page']) }}"><img src="img/logo_18.png" alt=""></a></div>
-
-        {#<div class="nav-link-box">#}
-            {#<a class="nav-link" href="">О нас</a>#}
-            {#<div class="custom-border"></div>#}
-        {#</div>#}
+        <div class="logo"><a href="{{ url.get(['for':'home-page']) }}"><img src="/img/logo_18.png" alt=""></a></div>
         <div class="nav-link-box">
-            <a class="nav-link" href="">Цены</a>
+            <a class="nav-link" href="{{ url.get(['for':'home-page']) }}">Главная</a>
             <div class="custom-border"></div>
         </div>
         <div class="nav-link-box">
-            <a class="nav-link" href="">Контакты</a>
+            <a class="nav-link" href="{{ url.get(['for':'about-us']) }}">О нас</a>
+            <div class="custom-border"></div>
+        </div>
+        <div class="nav-link-box">
+            <a class="nav-link" href="{{ url.get(['for':'prices']) }}">Цены</a>
+            <div class="custom-border"></div>
+        </div>
+        <div class="nav-link-box">
+            <a class="nav-link" href="{{ url.get(['for':'contact']) }}">Контакты</a>
             <div class="custom-border"></div>
         </div>
         <div class="nav-link-box">
@@ -34,7 +37,7 @@
             <div class="custom-border"></div>
         </div>
         <div class="nav-link-box">
-            <a class="nav-link" href="">Записаться</a>
+            <a class="nav-link" href="{{ url.get(['for':'feedback']) }}">Записаться</a>
             <div class="custom-border"></div>
         </div>
         <div class="nav-link-box-number">
@@ -52,9 +55,9 @@
         <div class="footer-title">Контакты</div>
         <div class="footer-container">
             {#<div class="contacts">#}
-                <div><i class="fas fa-mobile-alt"></i> : 0950042453</div>
-                <div><i class="fas fa-mobile-alt"></i> : 0668478437</div>
-                <div><i class="far fa-envelope"></i> : theksenic@gmail.com</div>
+            <div><i class="fas fa-mobile-alt"></i> : 0950042453</div>
+            <div><i class="fas fa-mobile-alt"></i> : 0668478437</div>
+            <div><i class="far fa-envelope"></i> : theksenic@gmail.com</div>
             {#</div>#}
             {#<div class="footer-form">#}
 
