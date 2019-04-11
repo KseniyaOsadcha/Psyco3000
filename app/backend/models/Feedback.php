@@ -1,34 +1,23 @@
 <?php
-namespace Multiple\Frontend\Models;
+namespace Multiple\Backend\Models;
+
 use Phalcon\Validation;
 use Phalcon\Validation\Validator\Email as EmailValidator;
 
-class Employee extends \Phalcon\Mvc\Model
+class Feedback extends \Phalcon\Mvc\Model
 {
 
     /**
      *
      * @var integer
      */
-    public $id_employee;
-
-    /**
-     *
-     * @var integer
-     */
-    public $id_role;
+    public $id_feedback;
 
     /**
      *
      * @var string
      */
-    public $firstname;
-
-    /**
-     *
-     * @var string
-     */
-    public $lastname;
+    public $name;
 
     /**
      *
@@ -46,25 +35,13 @@ class Employee extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    public $password;
+    public $comment;
 
     /**
      *
      * @var string
      */
-    public $profession;
-
-    /**
-     *
-     * @var string
-     */
-    public $education;
-
-    /**
-     *
-     * @var string
-     */
-    public $experience;
+    public $date_add;
 
     /**
      * Validations and business logic
@@ -73,19 +50,19 @@ class Employee extends \Phalcon\Mvc\Model
      */
     public function validation()
     {
-        $validator = new Validation();
-
-        $validator->add(
-            'email',
-            new EmailValidator(
-                [
-                    'model'   => $this,
-                    'message' => 'Please enter a correct email address',
-                ]
-            )
-        );
-
-        return $this->validate($validator);
+//        $validator = new Validation();
+//
+//        $validator->add(
+//            'email',
+//            new EmailValidator(
+//                [
+//                    'model'   => $this,
+//                    'message' => 'Please enter a correct email address',
+//                ]
+//            )
+//        );
+//
+//        return $this->validate($validator);
     }
 
     /**
@@ -94,7 +71,7 @@ class Employee extends \Phalcon\Mvc\Model
     public function initialize()
     {
         $this->setSchema("psyco_db");
-        $this->setSource("employee");
+        $this->setSource("feedback");
     }
 
     /**
@@ -104,14 +81,14 @@ class Employee extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'employee';
+        return 'feedback';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Employee[]|Employee|\Phalcon\Mvc\Model\ResultSetInterface
+     * @return Feedback[]|Feedback|\Phalcon\Mvc\Model\ResultSetInterface
      */
     public static function find($parameters = null)
     {
@@ -122,7 +99,7 @@ class Employee extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Employee|\Phalcon\Mvc\Model\ResultInterface
+     * @return Feedback|\Phalcon\Mvc\Model\ResultInterface
      */
     public static function findFirst($parameters = null)
     {
@@ -135,19 +112,16 @@ class Employee extends \Phalcon\Mvc\Model
      *
      * @return array
      */
+    
     public function columnMap()
     {
         return [
-            'id_employee' => 'id_employee',
-            'id_role' => 'id_role',
-            'firstname' => 'firstname',
-            'lastname' => 'lastname',
+            'id_feedback' => 'id_feedback',
+            'name' => 'name',
             'email' => 'email',
             'phone' => 'phone',
-            'password' => 'password',
-            'profession' => 'profession',
-            'education' => 'education',
-            'experience' => 'experience'
+            'comment' => 'comment',
+            'date_add' => 'date_add'
         ];
     }
 

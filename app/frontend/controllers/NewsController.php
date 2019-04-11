@@ -15,6 +15,7 @@ class NewsController extends ControllerBase
     public function initialize()
     {
         parent::initialize();
+        $this->assets->addCss('/css/news.css?v=1');
     }
 
     public function indexAction()

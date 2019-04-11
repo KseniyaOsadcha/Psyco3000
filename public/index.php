@@ -3,7 +3,8 @@
 use Phalcon\Mvc\Router;
 use Phalcon\Mvc\Application;
 use Phalcon\Di\FactoryDefault;
-
+use Phalcon\Session\Adapter\Files as Session;
+use Phalcon\Session\Factory;
 
 
 
@@ -26,11 +27,25 @@ $di = new FactoryDefault();
      * Get config service for use in inline setup below
      */
 //    $config = $di->getConfig();
-//
-//    /**
-//     * Include Autoloader
-//     */
+
+    /**
+     * Include Autoloader
+     */
 //    include APP_PATH . '/config/loader.php';
+
+
+
+// Start the session the first time when some component request the session service
+$di->setShared(
+    'session',
+    function () {
+        $session = new Session();
+
+        $session->start();
+
+        return $session;
+    }
+);
 
 $di->set(
     'router',
@@ -38,14 +53,6 @@ $di->set(
         $router = new Router();
 
         $router->setDefaultModule('frontend');
-        $router->add(
-            '/login',
-            [
-                'module'     => 'backend',
-                'controller' => 'index',
-                'action'     => 'index',
-            ]
-        );
 
         $router->add('/:module/:controller', array(
             'module'     => 1,
@@ -65,6 +72,45 @@ $di->set(
             'params' => 4
         ));
 
+        //backend
+        $router->add('/admin/login', array(
+            'module'     => 'backend',
+            'controller' => 'index',
+            'action'     => 'login',
+        ))->setName('login');
+        $router->add('/admin/register', array(
+            'module'     => 'backend',
+            'controller' => 'index',
+            'action'     => 'register',
+        ))->setName('register');
+        $router->add('/admin/logout', array(
+            'module'     => 'backend',
+            'controller' => 'index',
+            'action'     => 'logout',
+        ))->setName('logout');
+        $router->add('/admin/index', array(
+            'module'     => 'backend',
+            'controller' => 'index',
+            'action'     => 'index',
+        ))->setName('admin-index');
+        $router->add('/admin/feedbacks', array(
+            'module'     => 'backend',
+            'controller' => 'feedback',
+            'action'     => 'index',
+        ))->setName('admin-feedbacks');
+
+        $router->add('/admin/employees', array(
+            'module'     => 'backend',
+            'controller' => 'employee',
+            'action'     => 'index',
+        ))->setName('admin-employees');
+        $router->add('/admin/account', array(
+            'module'     => 'backend',
+            'controller' => 'employee',
+            'action'     => 'account',
+        ))->setName('account');
+
+        //frontend
         $router->add('/', array(
             'module'     => 'frontend',
             'controller' => 'index',

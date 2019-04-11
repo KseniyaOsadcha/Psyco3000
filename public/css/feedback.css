@@ -1,0 +1,163 @@
+/*contacts*/
+.alert-box {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto 60px;
+    max-width: 1200px;
+}
+
+.contacts {
+    padding: 40px;
+    border: 1px solid #e5e5e5;
+    background: #ededed;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 45%;
+
+}
+
+.contacts p {
+    margin-bottom: 25px !important;
+}
+
+.contacts p a {
+    color: #1d2124;
+    text-decoration: none;
+}
+
+.contacts p span {
+    color: #e76060;
+    margin-left: 20px;
+}
+
+.contact-feedback {
+    color: #868282;
+    width: 45%;
+    padding: 30px;
+    font-size: 20px;
+}
+
+.contact-feedback-title {
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.custom-form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.custom-form-control {
+    border: 1px solid #b1b1b1;
+    border-radius: 10px;
+    padding: 5px 10px;
+    line-height: 1.5;
+    color: #737373;
+    font-size: 16px;
+    min-width: 70%;
+}
+
+.custom-form-control:focus {
+    background-color: #fff;
+    border-color: #a09ba8;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255, 240, 254, 0.25);
+}
+
+
+/*feedback*/
+.bg-grey-feedback {
+    background: #f9f9f9;
+    padding: 50px;
+
+}
+
+.feedback-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.feedback-form {
+    margin: 0 auto;
+    padding: 0 0 60px 0;
+    max-width: 600px;
+}
+
+textarea {
+    resize: none;
+}
+
+.required-field {
+    color: red;
+}
+
+.required-field-notify {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+@media (max-width: 910px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contacts, .contact-feedback, .alert-box {
+        width: 75%;
+    }
+}
+
+@media (max-width: 600px) {
+    .contacts, .contact-feedback, .alert-box {
+        width: 95%;
+    }
+
+    .bg-grey-feedback {
+        padding: 35px 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .contacts p {
+        margin-bottom: 20px !important;
+    }
+
+    .contacts {
+        padding: 25px 0 25px 15px;
+        font-size: 18px;
+    }
+
+    .custom-form-group {
+        flex-direction: column;
+        margin: 15px 0;
+    }
+
+    .feedback-container {
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 340px) {
+
+    .contacts p span {
+        color: #e76060;
+        margin-left: 0px;
+    }
+
+    .contacts {
+        font-size: 16px;
+    }
+}

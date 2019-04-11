@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-    <div class="head">
+    <div class="head head-desktop">
         <div class="logo"><a href="{{ url.get(['for':'home-page']) }}"><img src="/img/logo_18.png" alt=""></a></div>
         <div class="nav-link-box">
             <a class="nav-link" href="{{ url.get(['for':'home-page']) }}">Главная</a>
@@ -41,29 +41,68 @@
             <div class="custom-border"></div>
         </div>
         <div class="nav-link-box-number">
-            <a class="nav-link" href="">+(380)95-004-24-53</a>
+            <a class="nav-link" href="tel:+380668660828">+38(066)866-0828</a>
         </div>
     </div>
+    <div class="head-mobile">
+        <div class="head-m-top">
+            <div class="logo"><a href="{{ url.get(['for':'home-page']) }}"><img src="/img/logo_18.png" alt=""></a></div>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+        <div class="head-m-menu">
+            <div class="head-mobile-menu">
+                <div class="nav-link-box">
+                    <a class="nav-link" href="{{ url.get(['for':'home-page']) }}">Главная</a>
+                    <div class="custom-border"></div>
+                </div>
+                <div class="nav-link-box">
+                    <a class="nav-link" href="{{ url.get(['for':'about-us']) }}">О нас</a>
+                    <div class="custom-border"></div>
+                </div>
+                <div class="nav-link-box">
+                    <a class="nav-link" href="{{ url.get(['for':'prices']) }}">Цены</a>
+                    <div class="custom-border"></div>
+                </div>
+                <div class="nav-link-box">
+                    <a class="nav-link" href="{{ url.get(['for':'contact']) }}">Контакты</a>
+                    <div class="custom-border"></div>
+                </div>
+                <div class="nav-link-box">
+                    <a class="nav-link" href="{{ url.get(['for':'news']) }}">Блог</a>
+                    <div class="custom-border"></div>
+                </div>
+                <div class="nav-link-box">
+                    <a class="nav-link" href="{{ url.get(['for':'feedback']) }}">Записаться</a>
+                    <div class="custom-border"></div>
+                </div>
+                <div class="nav-link-box-number">
+                    <a class="nav-link" href="tel:+380668660828">+38(066)866-0828</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </header>
-<div class="mt-8">
-    <br>
+<div class="before-header-margin">
 </div>
 {{ content() }}
 
 <footer>
-    <div class="bg-black-linear">
-        <div class="footer-title">Контакты</div>
-        <div class="footer-container">
-            {#<div class="contacts">#}
-            <div><i class="fas fa-mobile-alt"></i> : 0950042453</div>
-            <div><i class="fas fa-mobile-alt"></i> : 0668478437</div>
-            <div><i class="far fa-envelope"></i> : theksenic@gmail.com</div>
-            {#</div>#}
-            {#<div class="footer-form">#}
+    {#<div class="bg-black-linear">#}
+    <div class="footer-title">Контакты</div>
+    <div class="footer-container">
+        {#<div class="contacts">#}
+        <a href="tel:+380668660828"><i class="fas fa-mobile-alt"></i> : 0668660828</a>
+        <a href="tel:+380668478437"><i class="fas fa-mobile-alt"></i> : 0668478437</a>
+        <a href="mailto:harmony.life.kiev@gmail.com"><i class="far fa-envelope"></i> : harmony.life.kiev@gmail.com</a>
+        {#<a href="{{ url.get(['for' : 'admin-index']) }}">Войти</a>#}
+        {#</div>#}
+        {#<div class="footer-form">#}
 
-            {#</div>#}
-        </div>
+        {#</div>#}
     </div>
+
+    {#</div>#}
 </footer>
 </body>
 </html>

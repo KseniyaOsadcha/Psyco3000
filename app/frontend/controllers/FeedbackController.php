@@ -14,6 +14,7 @@ class FeedbackController extends ControllerBase
     public function initialize()
     {
         parent::initialize();
+        $this->assets->addCss('/css/feedback.css?v=1');
     }
 
     public function indexAction()
@@ -40,9 +41,9 @@ class FeedbackController extends ControllerBase
                     $this->flash->error('Упс! Что-то пошло не так! Проверьте правильность данных или позвоните в поддержку');
                 }
                 else{
-                    $mail = 'Имя: ' . $feedback->name . 'Телефон: ' . $feedback->phone;
+//                    $mail = 'Имя: ' . $feedback->name . 'Телефон: ' . $feedback->phone;
                     $this->flash->success('Отправка успешна! Мы свяжемся с вами в течении дня!');
-                    mail("theksenic@gmail.com", "Test", $mail);
+//                    mail("theksenic@gmail.com", "Test", $mail);
                 }
             }
 

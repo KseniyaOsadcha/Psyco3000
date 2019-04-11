@@ -1,22 +1,25 @@
 <div class="section-title">Контакты</div>
-
+<div class="alert-box">
+    {{ flash.output() }}
+    {{ flashDirect.output() }}
+</div>
 <div class="contact-container">
         <div class="contacts">
-            <p>Лена</p>
-            <p><span><i class="fas fa-mobile-alt"></i> : </span>+380 00 000 09 9 </p>
-            <p><span><i class="fas fa-mobile-alt"></i> : </span>+380 00 000 09 9 </p>
-            <p>Паша</p>
-            <p><span><i class="fas fa-mobile-alt"></i> : </span>+380 00 000 09 9 </p>
-            <p><span><i class="far fa-envelope"></i> : </span>hbsfhse@huh.sf</p>
             <p>Ксения</p>
-            <p><span><i class="far fa-envelope"></i> : </span>hih@iji.hi</p>
+            <p><a href="tel:+380668660828"><span><i class="fas fa-mobile-alt"></i> : </span>+ 380 66 866 0828</a></p>
+            <p>Наталия</p>
+            <p><a href="tel:+380668478437"><span><i class="fas fa-mobile-alt"></i> : </span>+ 380 66 847 8437</a></p>
+            <p>Почта</p>
+            <p><a href="mailto:harmony.life.kiev@gmail.com"><span><i class="far fa-envelope"></i> : </span>harmony.life.kiev@gmail.com</a></p>
+            <p>Офисы</p>
+            <p><span><i class="fas fa-map-marker-alt"></i> : </span>Кавказская 9</p>
+            <p><span><i class="fas fa-map-marker-alt"></i> : </span>Оболонский проспект 15</p>
         </div>
         <div class="contact-feedback">
             <div class="contact-feedback-title">
                 Свяжитесь со мной
             </div>
-            {{ flash.output() }}
-            {{ flashDirect.output() }}
+
             <form method="post">
                 <div class="custom-form-group">
                     <label for="name">Имя: </label>

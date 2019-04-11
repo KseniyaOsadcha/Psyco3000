@@ -8,11 +8,12 @@ class IndexController extends ControllerBase
     public function initialize()
     {
         parent::initialize();
+        $this->assets->addCss('/css/index.css?v=1');
     }
 
     public function indexAction()
     {
-        $empl = Employee::find('id_role = 2');
+        $empl = Employee::find('id_role < 3');
         $this->view->employees = $empl;
     }
 
@@ -21,7 +22,7 @@ class IndexController extends ControllerBase
     }
     public function aboutUsAction()
     {
-        $empl = Employee::find();
+        $empl = Employee::find('id_role < 3');
         $this->view->employees = $empl;
     }
 }

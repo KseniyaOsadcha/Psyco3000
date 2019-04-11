@@ -1,20 +1,22 @@
-<section class="bd_image-header">
-    <div class="head-container">
-        <div class="section-title">Почему мы?</div>
-        <div class="head-boxes">
-            <ul>
-                <li>Под любой бюджет</li>
-                <li>Разные виды методик</li>
-                <li>Квалифицированные сотрудники</li>
-            </ul>
-            <ul>
-                <li>Удобное расположение</li>
-                <li>Комфортная обстановка</li>
-                <li>Удаленная работа по Скайпу</li>
-            </ul>
+<div class="bd_image-header">
+    <section class="bg-darkness">
+        <div class="head-container">
+            <div class="section-title">Почему мы?</div>
+            <div class="head-boxes">
+                <ul>
+                    <li>Под любой бюджет</li>
+                    <li>Разные виды методик</li>
+                    <li>Квалифицированные сотрудники</li>
+                </ul>
+                <ul>
+                    <li>Удобное расположение</li>
+                    <li>Комфортная обстановка</li>
+                    <li>Удаленная работа по Skype</li>
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 <section class="section-trend">
     <div class="trend-container">
         <div class="section-title">
@@ -30,12 +32,12 @@
             </ul>
             <ul>
                 <li><span class="trends-arrows"><i class="fas fa-angle-double-right"></i></span>депрессия</li>
-                <li><span class="trends-arrows"><i class="fas fa-angle-double-right"></i></span>фобии, апатии,
+                <li><span class="trends-arrows"><i class="fas fa-angle-double-right"></i></span>фобии, апатия,
                     панические атаки
                 </li>
                 <li><span class="trends-arrows"><i class="fas fa-angle-double-right"></i></span>постоянная тревожность
                 </li>
-                <li><span class="trends-arrows"><i class="fas fa-angle-double-right"></i></span>мысли о смерти и пр.
+                <li><span class="trends-arrows"><i class="fas fa-angle-double-right"></i></span>проблемы со сном и пр.
                 </li>
             </ul>
         </div>
@@ -51,7 +53,7 @@
     <div class="call_me-container">
         <div>
             <div class="call_me-title">Все ещё сомневаешься?</div>
-            <div class="call_me-sub-title">Мы поможем тебе определиться! Позвони и запишись на консульацию со скидкой
+            <div class="call_me-sub-title">Мы поможем тебе определиться! Позвони и запишись на консультацию со скидкой
                 10%
             </div>
         </div>
@@ -63,33 +65,43 @@
         <div class="section-title">Специалисты</div>
         {% for employee in employees %}
             <div class="employee">
-                <div>
-                    <div class="empl-img"
-                         style="background: url('img/employees/{{ employee.id }}.jpg') center 0% no-repeat; background-size: cover;">
-                        {#<img src="img/{{ employee.id }}.jpg" alt="">#}
+                <div class="empl-main">
+                    <div class="empl-photo">
+                        <div class="empl-img"
+                             style="background: url('img/employees/{{ employee.id_employee }}.jpg') center 0% no-repeat; background-size: cover;">
+                        </div>
+                    </div>
+                    <div class="empl-info">
+                        <div class="empl-info-title">
+                            {{ employee.firstname }}
+                            {{ employee.lastname }}
+                        </div>
+                        <div class="empl-profession">
+                            <i class="fas fa-angle-right"></i> {{ employee.profession|default('') }}
+                        </div>
+                        <a class="btn-more" data-toggle="collapse" href="#more{{ employee.id_employee }}" role="button" aria-expanded="false" aria-controls="more{{ employee.id_employee }}">
+                            Подробнее..
+                        </a>
                     </div>
                 </div>
-                <div class="empl-info">
-                    <div class="empl-info-title">
-                        {{ employee.firstname }}
-                        {{ employee.lastname }}
-                    </div>
-                    <div class="empl-profession">
-                        <i class="fas fa-angle-right"></i> {{ employee.profession|default('') }}
-                    </div>
-                    <div class="empl-experience">
-                        <div class="empl-experience-title">Опыт работы:</div>
-                        <div class="empl-experience-value">
-                            {{ employee.experience|default('') }}
+                <div class="empl-info collapse" id="more{{ employee.id_employee }}">
+                    {% if (employee.experience) %}
+                        <div class="empl-experience">
+                            <div class="empl-experience-title">Опыт работы:</div>
+                            <div class="empl-experience-value">
+                                {{ employee.experience|default('') }}
+                            </div>
                         </div>
+                    {% endif %}
+                    {% if (employee.education) %}
+                        <div class="empl-experience">
+                            <div class="empl-experience-title">Образование:</div>
+                            <div class="empl-experience-value">
+                                {{ employee.education|default('') }}
+                            </div>
+                        </div>
+                    {% endif %}
 
-                    </div>
-                    <div class="empl-experience">
-                        <div class="empl-experience-title">Образование:</div>
-                        <div class="empl-experience-value">
-                            {{ employee.education|default('') }}
-                        </div>
-                    </div>
                 </div>
             </div>
         {% endfor %}

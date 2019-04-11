@@ -1,0 +1,407 @@
+/* index page */
+
+/* header */
+
+.bd_image-header {
+    background: url('/img/index_header.jpg') center 82% no-repeat;
+    background-size: cover;
+}
+
+.head-container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.head-boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head-boxes ul {
+    margin-left: 30px;
+}
+
+.head-boxes li {
+    margin: 50px 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/*section trends */
+.trend-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.trend-boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*align-items: center;*/
+}
+
+/*.trend-boxes ul{*/
+/*flex-grow: 1;*/
+/*}*/
+.trend-boxes li {
+
+    list-style-type: none;
+    font-size: 28px;
+    /*border-bottom: 1px solid #cfcfff;*/
+    /*border-radius: 30px;*/
+    margin: 10px;
+    padding: 10px 20px;
+    /*box-shadow: 3px 3px 3px 0px #868686;*/
+}
+
+.trends-arrows {
+    color: #e76161;
+    padding-right: 10px;
+}
+
+/* call me section */
+.section-call_me {
+    background: #ebebed;
+}
+
+.call_me-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.call_me-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #383838;
+}
+
+.call_me-sub-title {
+    font-size: 20px;
+    color: #383838;
+}
+
+/*employees*/
+.employees-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.employee {
+    margin: 30px 0;
+
+    padding: 20px;
+    background: #f9f9f98a;
+    border-radius: 35px;
+    -webkit-box-shadow: 5px 5px 20px 0px #7d7d7d59;
+    -moz-box-shadow: 5px 5px 20px 0px #7d7d7d59;
+    box-shadow: 5px 5px 20px 0px #7d7d7d59;
+
+}
+
+.empl-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.empl-main .empl-photo {
+    flex-grow: 1;
+}
+
+.empl-main .empl-info {
+    flex-grow: 5;
+}
+
+.btn-more {
+    color: #1d2124;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-more:hover {
+    color: #626262;
+    text-decoration: none;
+    transition: 200ms;
+}
+
+/*.empl-img, .empl-info {*/
+/*margin: 20px;*/
+/*}*/
+
+.employee div {
+    flex-grow: 1;
+}
+
+.empl-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+/*.empl-img img {*/
+/*max-width: 300px;*/
+/*!*width: 100%;*!*/
+/*}*/
+
+.empl-info {
+    flex-grow: 3;
+    padding: 20px;
+}
+
+.empl-info-title {
+    font-size: 40px;
+
+}
+
+.empl-profession {
+    font-size: 21px;
+    color: #ad0000;
+    font-weight: 700;
+}
+
+.empl-experience {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.empl-experience-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #a7a7a7;
+    max-width: 200px;
+    width: 100%;
+}
+
+.empl-experience-value {
+    /*text-align: right;*/
+    font-size: 24px;
+}
+
+.section-bg-gray {
+    background: #f9f9f9;
+    padding: 40px 0;
+}
+
+/*prices*/
+.prices-container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*background: #1b1e21;*/
+}
+
+.prices-image {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #1b1e21;
+    margin: 0 auto 20px;
+}
+
+.kind-group-content {
+    text-align: justify;
+    padding: 10px 20px 30px;
+    max-width: 550px;
+}
+
+.kind-group-title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.kind-group-text {
+    font-size: 20px;
+}
+
+.editional-info {
+    font-size: 20px;
+}
+
+.editional-info-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 40px;
+}
+
+@media (max-width: 910px) {
+    .head-boxes li {
+        margin: 30px 0;
+        font-size: 20px;
+    }
+
+    .section-title {
+        font-size: 28px;
+        padding-bottom: 20px;
+    }
+
+    .trend-boxes li {
+        font-size: 20px;
+    }
+
+    .call_me-title {
+        font-size: 28px;
+    }
+
+    .call_me-sub-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .call_me-container {
+        flex-direction: column;
+    }
+
+    .empl-experience-value {
+        font-size: 18px;
+    }
+
+    .empl-info-title {
+        font-size: 36px;
+    }
+
+    .empl-profession {
+        font-size: 18px;
+    }
+
+    .prices-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    .kind-group-title {
+        font-size: 20px;
+    }
+
+    .kind-group-text {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 740px) {
+    .empl-img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .empl-info-title {
+        font-size: 28px;
+    }
+
+    .empl-profession {
+        font-size: 15px;
+    }
+
+    .prices-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /*.kind-group-content {*/
+        /*max-width: none;*/
+    /*}*/
+}
+
+@media (max-width: 600px) {
+
+    .head-boxes {
+        flex-direction: column;
+        align-items: self-start;
+    }
+
+    .head-boxes li {
+        margin: 25px 0 0 0;
+        font-weight: 500;
+    }
+
+    .head-boxes ul {
+        margin-bottom: 0px;
+    }
+
+    .trend-boxes {
+        flex-direction: column;
+    }
+
+    .trend-boxes li {
+        margin: 0;
+    }
+
+    .trend-boxes ul {
+        margin-bottom: 0;
+    }
+
+    .empl-info {
+        padding: 10px;
+    }
+
+    .bg-darkness {
+        background: #fbfbfb7a;
+    }
+
+    .about_us-container {
+        font-size: 16px !important;
+        padding: 0 10px !important;
+    }
+}
+
+@media (max-width: 540px) {
+
+    .empl-main {
+        flex-direction: column;
+    }
+
+    .empl-info-title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .empl-profession {
+        font-size: 13px;
+    }
+
+    .btn-more {
+        font-size: 15px;
+    }
+
+    .empl-experience-title {
+        font-size: 20px;
+    }
+
+    .empl-experience-value {
+        font-size: 14px;
+    }
+
+    .empl-info {
+        padding: 4px;
+    }
+    .kind-group-content {
+        padding: 10px 0px 30px;
+    }
+    .editional-info-container {
+        padding: 10px;
+    }
+}
