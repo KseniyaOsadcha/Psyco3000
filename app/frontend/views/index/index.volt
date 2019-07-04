@@ -52,8 +52,8 @@
 <section class="section-call_me">
     <div class="call_me-container">
         <div>
-            <div class="call_me-title">Все ещё сомневаешься?</div>
-            <div class="call_me-sub-title">Мы поможем тебе определиться! Позвони и запишись на консультацию со скидкой
+            <div class="call_me-title">Вы еще сомневаетесь?</div>
+            <div class="call_me-sub-title">Позвоните и запишитесь на консультацию со скидкой
                 10%
             </div>
         </div>

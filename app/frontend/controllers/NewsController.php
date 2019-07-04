@@ -15,18 +15,24 @@ class NewsController extends ControllerBase
     public function initialize()
     {
         parent::initialize();
-        $this->assets->addCss('/css/news.css?v=1');
+        $this->assets->addCss('/css/news.css?v=2');
     }
 
     public function indexAction()
     {
-        $news = News::find();
+        $this->tag->setDescription(
+            'Мы регулярно обновляем наш блог, пополняя его полезными и интересными статьями.'
+        );
+        $this->tag->setTitle('Блог');
+        $news = News::find(['conditions' => 'is_valid = 2', 'order'=>'id_news DESC']);
         $this->view->news = $news;
     }
     public function viewAction()
     {
         $id_news = $this->dispatcher->getParam('id_news');
         $article = News::findFirst($id_news);
+        $this->tag->setTitle($article->title);
+        $this->tag->setDescription($article->abbreviated_text);
         $this->view->article = $article;
     }
 }

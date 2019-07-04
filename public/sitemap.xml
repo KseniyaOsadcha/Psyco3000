@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+
+        <loc>https://www.psylife.kiev.ua/</loc>
+
+        <changefreq>daily</changefreq>
+
+        <priority>1.0</priority>
+
+    </url>
+
+    <url>
+
+        <loc>https://www.psylife.kiev.ua/about-us</loc>
+
+        <changefreq>weekly</changefreq>
+
+    </url>
+
+    <url>
+
+        <loc>https://www.psylife.kiev.ua/prices</loc>
+
+        <changefreq>weekly</changefreq>
+
+    </url>
+
+    <url>
+
+        <loc>https://www.psylife.kiev.ua/contact</loc>
+
+    </url>
+
+    <url>
+
+        <loc>https://www.psylife.kiev.ua/feedback</loc>
+        <changefreq>weekly</changefreq>
+
+    </url>
+
+    <url>
+
+        <loc>https://www.psylife.kiev.ua/news</loc>
+        <changefreq>weekly</changefreq>
+
+    </url>
+</urlset>

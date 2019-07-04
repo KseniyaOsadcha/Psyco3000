@@ -8,7 +8,7 @@
                 <th class="">email</th>
                 <th class="">Комментарий</th>
                 <th class="">Дата добавления</th>
-                {#<th class=" text-center">Действия</th>#}
+                <th class=" text-center">Действия</th>
             </tr>
             </thead>
             <tbody>
@@ -27,12 +27,26 @@
                         {{ feedback.comment|default('') }}
                     </td>
                     <td class="">
-                        {{ date('H', strtotime(feedback.date_add)) + 3}}:{{ date('i - d.m.y', strtotime(feedback.date_add))}}
+                        {{ date('H:i - d.m.y', strtotime(feedback.date_add))}}
                     </td>
-                    {#<td class=" align-middle text-center">#}
-                        {#<div class="btn-group">#}
-                        {#</div>#}
-                    {#</td>#}
+                    <td class="d-flex flex-column align-middle text-center">
+                        <a class="change-status btn btn-success btn-sm mb-1" data-id_status="1"
+                           data-id_feedback="{{ feedback.id_feedback }}" href="#">
+                            Новая запись
+                        </a>
+                        <a class="change-status btn btn-light btn-sm mb-1" data-id_status="2"
+                           data-id_feedback="{{ feedback.id_feedback }}" href="#">
+                            Не дозвонились
+                        </a>
+                        <a class="change-status btn btn-light btn-sm mb-1" data-id_status="3"
+                           data-id_feedback="{{ feedback.id_feedback }}" href="#">
+                            Записан на прием
+                        </a>
+                        <a class="change-status btn btn-danger btn-sm mb-1" data-id_status="4"
+                           data-id_feedback="{{ feedback.id_feedback }}" href="#">
+                            Не актуально
+                        </a>
+                    </td>
                 </tr>
 
             {% endfor %}

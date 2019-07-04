@@ -36,7 +36,11 @@ class Feedback extends \Phalcon\Mvc\Model
      * @var string
      */
     public $comment;
-
+    /**
+     *
+     * @var int
+     */
+    public $id_status;
     /**
      *
      * @var string
@@ -112,7 +116,11 @@ class Feedback extends \Phalcon\Mvc\Model
      *
      * @return array
      */
-    
+    public function beforeSave()
+    {
+        date_default_timezone_set('Europe/Kiev');
+        $this->date_add = date('Y-m-d H:i:s');
+    }
     public function columnMap()
     {
         return [
@@ -121,6 +129,7 @@ class Feedback extends \Phalcon\Mvc\Model
             'email' => 'email',
             'phone' => 'phone',
             'comment' => 'comment',
+            'id_status' => 'id_status',
             'date_add' => 'date_add'
         ];
     }

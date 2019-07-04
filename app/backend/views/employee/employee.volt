@@ -6,7 +6,7 @@
                 <th class="">ФИО</th>
                 <th class="">Телефон</th>
                 <th class="">email</th>
-                {#<th class=" text-center">Действия</th>#}
+                <th class=" text-center">Действия</th>
             </tr>
             </thead>
             <tbody>
@@ -21,10 +21,18 @@
                     <td class="">
                         {{ employee.email|default('') }}
                     </td>
-                    {#<td class=" align-middle text-center">#}
-                    {#<div class="btn-group">#}
-                    {#</div>#}
-                    {#</td>#}
+                    <td class=" align-middle text-center">
+                        <div class="btn-group">
+                            <button class="btn btn-default">
+                                <a href="{{ url.get(['for':'employee-view','id_employee': employee.id_employee]) }}">Посмотреть</a>
+                            </button>
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"></button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Удалить</a>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
 
             {% endfor %}

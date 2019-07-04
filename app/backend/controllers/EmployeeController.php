@@ -16,13 +16,16 @@ class EmployeeController extends ControllerBase
     public function initialize()
     {
         parent::initialize();
-        if (!$this->session->has('id-employee') && $this->session->get('id-employee') != null)
+        if (!$this->session->has('id-employee') || $this->session->get('id-employee') == null)
             return $this->response->redirect($this->url->get(['for' => 'login']));
     }
     public function indexAction()
     {
         $this->assets->addJs('/admin/js/paginate.js');
         $id_role = $this->session->get('id-role');
+        if($id_role == null){
+            return $this->response->redirect($this->url->get(['for' => 'login']));
+        }
         if ($id_role != 2 && $id_role != 3 ){
             $this->flash->error('У вас нет доступа к этой странице!');
             return $this->response->redirect($this->url->get(['for'=>'admin-index']));
@@ -75,5 +78,28 @@ class EmployeeController extends ControllerBase
             }
         }
         $this->view->employee = $employee;
+    }
+    public function viewAction(){
+        $id_role = $this->session->get('id-role');
+        if ($id_role != 2 && $id_role != 3 ){
+            $this->flash->error('У вас нет доступа к этой странице!');
+            return $this->response->redirect($this->url->get(['for'=>'admin-index']));
+        }
+        $id_employee = $this->dispatcher->getParam('id_employee');
+        $employee = Employee::findFirst($id_employee);
+        if ($this->request->isPost()) {
+            $post = $this->request->getPost();
+            if ($employee->save($post)) {
+                $this->flash->success('Обновление прошло успешно!');
+            }
+        }
+        $this->view->employee = $employee;
+    }
+    public function photoAction(){
+//        $this->assets->addCss('/vendor/jquery-crop/jquery.Jcrop.min.css');
+//        $this->assets->addJs('/vendor/jquery-crop/jquery.Jcrop.min.js');
+        $id_employee = $this->dispatcher->getParam('id_employee');
+        $this->view->id_employee = $id_employee;
+
     }
 }

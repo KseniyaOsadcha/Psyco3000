@@ -14,13 +14,8 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
-//     $ff = $this->security->hash('1Arsinica');
-//     echo ($ff);
-//     die;
         if (!$this->session->has('id-employee'))
             return $this->response->redirect($this->url->get(['for' => 'login']));
-////        $this->session->remove('id-employee');
-//          $name = $this->session->get('id-employee');
     }
     public function loginAction()
     {

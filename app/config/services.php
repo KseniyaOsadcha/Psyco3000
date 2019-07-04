@@ -70,7 +70,14 @@ $di->setShared('db', function () {
 $di->setShared('modelsMetadata', function () {
     return new MetaDataAdapter();
 });
-
+$di->setShared('tag', function () {
+    $tag = new \Multiple\Frontend\Models\Tag();
+    return $tag;
+});
+//$di->setShared('context', function () {
+//    $context = new \Multiple\Backend\Models\Context();
+//    return $context;
+//});
 /**
  * Register the session flash service with the Twitter Bootstrap classes
  */

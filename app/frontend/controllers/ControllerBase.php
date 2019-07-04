@@ -12,5 +12,6 @@ class ControllerBase extends Controller
         $this->assets->addJs('/vendor/jquery/jquery.min.js')
             ->addJs('/vendor/bootstrap/js/bootstrap.min.js')
             ->addJs('/js/layouts.js?v=1');
+        $this->tag->appendTitle(' | NewSens');
     }
 }

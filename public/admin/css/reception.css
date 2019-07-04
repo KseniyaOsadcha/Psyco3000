@@ -1,0 +1,26 @@
+.no-day{
+    background: #f9f9f9;
+}
+.today{
+    background: #c4e1ff;
+}
+.table-cell{
+    color: #1d2124;
+    text-align: center;
+}
+a:hover{
+    text-decoration: none;
+
+}
+.table-cell:hover{
+    color: #b70000;
+    font-weight: 600;
+}
+td:hover{
+    background: #e5e5e5;
+}
+.calendar{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}

@@ -27,6 +27,7 @@ class News extends \Phalcon\Mvc\Model
      * @var string
      */
     public $text;
+    public $is_valid;
 
     /**
      *
@@ -81,6 +82,11 @@ class News extends \Phalcon\Mvc\Model
      *
      * @return array
      */
+    public function beforeSave()
+    {
+        date_default_timezone_set('Europe/Kiev');
+        $this->date_add = date('Y-m-d H:i:s');
+    }
     public function columnMap()
     {
         return [
@@ -88,6 +94,7 @@ class News extends \Phalcon\Mvc\Model
             'title' => 'title',
             'abbreviated_text' => 'abbreviated_text',
             'text' => 'text',
+            'is_valid' => 'is_valid',
             'date_add' => 'date_add'
         ];
     }

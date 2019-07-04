@@ -82,7 +82,7 @@
     max-width: 85%;
     background: #fdfdfd;
     padding: 20px 71px;
-    text-align: justify;
+    /*text-align: justify;*/
 }
 
 .article-container {

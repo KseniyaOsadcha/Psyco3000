@@ -25,7 +25,7 @@ class Module implements ModuleDefinitionInterface
         $loader->registerNamespaces(
             [
                 'Multiple\Frontend\Controllers' => '../app/frontend/controllers/',
-                'Multiple\Frontend\Models'      => '../app/frontend/models/',
+                'Multiple\Frontend\Models' => '../app/frontend/models/',
             ]
         );
 
@@ -40,26 +40,34 @@ class Module implements ModuleDefinitionInterface
         // Registering a dispatcher
         $di->set(
             'dispatcher',
-            function () {
-                $dispatcher = new Dispatcher();
+            function () use ($di) {
 
+                $evManager = $di->getShared('eventsManager');
+
+                $evManager->attach(
+                    "dispatch:beforeException",
+                    function ($event, $dispatcher, $exception) {
+                        switch ($exception->getCode()) {
+                            case Dispatcher::EXCEPTION_HANDLER_NOT_FOUND:
+                            case Dispatcher::EXCEPTION_ACTION_NOT_FOUND:
+                            $dispatcher->forward(
+                                    array(
+                                        'controller' => 'error',
+                                        'action' => 'show404',
+                                    )
+                                );
+                                return false;
+                        }
+                    }
+                );
+                $dispatcher = new Dispatcher();
                 $dispatcher->setDefaultNamespace('Multiple\Frontend\Controllers');
 
+                $dispatcher->setEventsManager($evManager);
                 return $dispatcher;
-            }
+            },
+            true
         );
-
-        // Registering the view component
-//        $di->set(
-//            'view',
-//            function () {
-//                $view = new View();
-//
-//                $view->setViewsDir('../app/frontend/views/');
-//
-//                return $view;
-//            }
-//        );
 
         $di['view'] = function () {
 

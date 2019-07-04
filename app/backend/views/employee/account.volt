@@ -1,7 +1,9 @@
 <div id="employee-update">
     <h1 class="text-center page-header">{{ employee.firstname }} {{ employee.lastname }}</h1>
     <div class=" col-lg-6 col-md-6 col-sm-8 col-xs-12 mg-auto">
-
+        <div class="mb-3 mt-3">
+            <img src="../../../img/employees/{{ employee.id_employee }}.jpg" alt="фото отсутствует" class="view-photo ">
+        </div>
         <form method="post">
 
             <div class="form-group">
